@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=750,viewport-fit=cover">
+    <title>幻联赛</title>
+    <meta name="keywords" content="伐木累,幻联赛,电竞赛事,范特西,lpl,lol,Lck,Lspl,Lms,Lcs">
+    <meta name="description" content="幻联赛是一款基于真实赛事的范特西平台，玩家根据自己对真实赛事的了解和分析，组建阵容与其他玩家和朋友PK。 所有应用内数据与现实比赛同步，用户可以在看比赛的同时参加竞技，赢得丰厚奖励。">
+    <meta name = "format-detection" content = "telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+
+    <link href="/static/images/favicon.ico" rel="icon" type="image/x-icon">
+    <link href="/static/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="stylesheet" href="static/css/iconfont.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <script src="static/css/iconfont.js"></script>
+    <script src="static/js/jquery-1.12.2.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="static/layer_mobile/layer.js"></script>
+    <script src="static/js/TweenLite.min.js"></script>
+    <script src="static/js/jquery.fly.min.js"></script>
+  </head>
+  <body>
+    <div id="loading">
+      <div class="icon-box">
+        <img class="icon" src="/static/images/share.png" />
+        <div class="progress"><div class="progress-bar" style="width: 100%"></div></div>
+      </div>
+    </div>
+    <div id="app"></div>
+  </body>
+
+  <script>
+      //用于掌盟分享callback
+      var ShareTitle = '幻联赛';
+      var ShareDesc = '幻联赛是通过组建各自的阵容参与线上竞赛的一个电竞游戏。你可以选择你心仪的选手，组建你理想的阵容。';
+      var ShareImgUrl = 'https://img1.famulei.com/active/zm/lfl.png';//分享图片
+      // game_url里的域名必须与game_id的域名匹配, 否则后台会校验不通过
+      var game_url = 'https://lfl.scoregg.net';
+      var game_id= 5;
+      // 现网环境域名替换为  qt.qq.com
+      var ShareUrl = 'http://qt.qq.com/php_cgi/lol_mobile/quwan/html/redirect.html?game_id='+ game_id +'&redirect_url=' + encodeURIComponent( encodeURIComponent(game_url));//分享落地页地址
+
+      // 分享控件配置:
+      function qtconfig(soruce){
+          var share_btn_cfg = {"share":["lolfriend","postlistcircle"],"sharetype":"url"};
+          location.href = "qtconfig://"+soruce+"?title="+encodeURIComponent(ShareTitle)+"&share="+encodeURIComponent(JSON.stringify(share_btn_cfg));
+      }
+
+      // 分享按钮设置:  点击分享btn时, 根据实际需要设置分享的标题,链接,图片等
+      var zmshare = false;
+      function qtshare(soruce){
+        var share= "qtshare://"+soruce+"?title="+encodeURIComponent(ShareTitle)+"&url="+encodeURIComponent(ShareUrl);
+        if(ShareDesc){
+          share += "&content="+encodeURIComponent(ShareDesc);
+        }
+        if(ShareImgUrl){
+          share += "&thumb_url="+encodeURIComponent(ShareImgUrl);
+        }
+          if(zmshare){
+              // console.log(soruce);//这里执行用户分享的调用
+            var login_obj = JSON.parse(localStorage.getItem("loginInfo"));
+            var member_obj = JSON.parse(localStorage.getItem("member_info"));
+            if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) { //判断iPhone|iPad|iPod|iOS
+              var share_platform = 'ios';
+            } else if (/(Android)/i.test(navigator.userAgent)) {  //判断Android
+              var share_platform = 'android';
+            }
+            $.ajax({
+              url: "https://lfl-api.scoregg.net/services/task/share_task_finish.php",
+              type:"get",
+              data: {
+                task_name:'share_lineup',
+                member_id: member_obj.member_id,
+                token: member_obj.w_token,
+                open_uuid: login_obj.open_uuid,
+                open_token: login_obj.open_token,
+                      ts:Math.round(new Date().getTime()/1000).toString(),
+                platform:share_platform
+              },
+              success: function(response){
+                // console.log(response.message);
+                location.href = share;
+              }
+            });
+          }else{
+            window.zmshare = true;
+            location.href = share;
+          }
+
+      }
+      //百度统计代码
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?1a660c478b94c2163d5386922f4d9000";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+  </script>
+</html>

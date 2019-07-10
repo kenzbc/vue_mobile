@@ -1,0 +1,86 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "mob-multi-picker",
+        "scope": null,
+        "escapedName": "mob-multi-picker",
+        "name": "mob-multi-picker",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\phpStudy\\WWW\\niupu_sns\\active\\fantasy"
+    ]
+  ],
+  "_cnpm_publish_time": 1495974905815,
+  "_from": "mob-multi-picker@latest",
+  "_hasShrinkwrap": false,
+  "_id": "mob-multi-picker@1.2.2",
+  "_inCache": true,
+  "_location": "/mob-multi-picker",
+  "_nodeVersion": "6.2.2",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/mob-multi-picker-1.2.2.tgz_1495974905665_0.7890058197081089"
+  },
+  "_npmUser": {
+    "name": "appian",
+    "email": "zhang4baichi@sina.com"
+  },
+  "_npmVersion": "4.6.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "mob-multi-picker",
+    "scope": null,
+    "escapedName": "mob-multi-picker",
+    "name": "mob-multi-picker",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npm.taobao.org/mob-multi-picker/download/mob-multi-picker-1.2.2.tgz",
+  "_shasum": "5b00720e993ed23b8fb8c4dfbfaa5c9b2e32ce6c",
+  "_shrinkwrap": null,
+  "_spec": "mob-multi-picker",
+  "_where": "D:\\phpStudy\\WWW\\niupu_sns\\active\\fantasy",
+  "author": {
+    "name": "appian"
+  },
+  "bugs": {
+    "url": "https://github.com/AppianZ/multi-picker/issues/new"
+  },
+  "dependencies": {},
+  "description": "a flexible picker for User-Defined Json",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "5b00720e993ed23b8fb8c4dfbfaa5c9b2e32ce6c",
+    "size": 9876,
+    "noattachment": false,
+    "tarball": "http://registry.npm.taobao.org/mob-multi-picker/download/mob-multi-picker-1.2.2.tgz"
+  },
+  "homepage": "https://github.com/AppianZ/multi-picker/tree/master/MultiPicker",
+  "keywords": [
+    "city-picker",
+    "multi-picker"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "appian",
+      "email": "zhang4baichi@sina.com"
+    }
+  ],
+  "name": "mob-multi-picker",
+  "optionalDependencies": {},
+  "publish_time": 1495974905815,
+  "readme": "ERROR: No README data found!",
+  "scripts": {},
+  "version": "1.2.2"
+}
