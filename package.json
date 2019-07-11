@@ -2,7 +2,7 @@
   "name": "fantasy",
   "version": "1.2.7",
   "description": "掌盟幻联赛",
-  "author": "十三月",
+  "author": "诸斌超",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
