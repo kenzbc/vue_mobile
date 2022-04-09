@@ -19,7 +19,7 @@
     "js-base64": "^2.1.9",
     "lem_counter": "^1.0.1",
     "md5": "^2.2.1",
-    "moment": "^2.18.1",
+    "moment": "^2.29.2",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "viscroll": "^1.0.5",
